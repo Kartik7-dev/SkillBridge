@@ -1,0 +1,198 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #FAF9FF;
+  --color-surface: #FFFFFF;
+  --color-white: #FFFFFF;
+  --color-dark: #171329;
+  --color-text: #171329;
+  --color-muted: #6B6680;
+  --color-text-secondary: #6B6680;
+  --color-border: #E9E2F5;
+  --color-border-subtle: #F1EDF9;
+
+  /* Primary Purple Palette */
+  --color-deep-purple: #5B21B6;
+  --color-primary: #7C3AED;
+  --color-primary-dark: #5B21B6;
+  --color-primary-hover: #6D28D9;
+  --color-vibrant-purple: #8B5CF6;
+  --color-light-lavender: #EDE9FE;
+  --color-pale-lavender: #F5F0FF;
+  
+  /* Numbered shades */
+  --color-primary-50: #FAF7FF;
+  --color-primary-100: #F3EDFF;
+  --color-primary-200: #E6D8FF;
+  --color-primary-300: #D0B8FF;
+  --color-primary-400: #B28AFF;
+  --color-primary-500: #8B5CF6;
+  --color-primary-600: #7C3AED;
+  --color-primary-700: #6D28D9;
+  --color-primary-800: #5B21B6;
+  --color-primary-900: #4C1D95;
+
+  /* Accent colors */
+  --color-success: #A3E635;
+  --color-success-dark: #65A30D;
+  --color-success-bg: #F7FEE7;
+  --color-coral: #F43F5E;
+  --color-coral-bg: #FFF1F2;
+
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-bg);
+    color: var(--color-dark);
+  }
+  
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-dark);
+    background-color: var(--color-bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.025em;
+    font-weight: 700;
+  }
+}
+
+@layer utilities {
+  .gradient-purple-cta {
+    background: linear-gradient(135deg, #7C3AED 0%, #A855F7 100%);
+  }
+
+  .gradient-purple-rich {
+    background: linear-gradient(135deg, #5B21B6 0%, #8B5CF6 50%, #C084FC 100%);
+  }
+
+  .gradient-lavender-subtle {
+    background: linear-gradient(135deg, #F5F0FF 0%, #EDE9FE 100%);
+  }
+
+  .gradient-card-surface {
+    background: linear-gradient(145deg, #FFFFFF 0%, #FBF9FF 100%);
+  }
+
+  .purple-gradient-text {
+    background: linear-gradient(135deg, #7C3AED 0%, #9333EA 50%, #C084FC 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .purple-glow-sm {
+    box-shadow: 0 4px 16px -2px rgba(124, 58, 237, 0.25);
+  }
+
+  .purple-glow-md {
+    box-shadow: 0 8px 30px -4px rgba(124, 58, 237, 0.35);
+  }
+
+  .purple-glow-lg {
+    box-shadow: 0 16px 48px -6px rgba(124, 58, 237, 0.45);
+  }
+
+  .purple-glow-hover:hover {
+    box-shadow: 0 10px 32px -4px rgba(124, 58, 237, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(233, 226, 245, 0.9);
+  }
+
+  .glass-nav {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(233, 226, 245, 0.7);
+  }
+
+  .card-pop-hover {
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .card-pop-hover:hover {
+    transform: translateY(-4px) scale(1.012);
+    box-shadow: 0 20px 38px -10px rgba(91, 33, 182, 0.12), 0 0 0 1px rgba(124, 58, 237, 0.25);
+  }
+}
+
+/* Animations */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(0.5deg);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(-0.5deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-float-gentle {
+  animation: floatGentle 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 7s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+/* Custom Scrollbar in Purple/Lavender */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF9FF;
+}
+::-webkit-scrollbar-thumb {
+  background: #D8CEEB;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8B5CF6;
+}
